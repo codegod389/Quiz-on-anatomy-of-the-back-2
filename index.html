@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatomy of the Back 2: Deep Muscles, Rhomboids & Levator Scapulae Mastery Quiz</title>
+    <style>
+        :root {
+            --primary: #2c5282;
+            --secondary: #3182ce;
+            --accent: #63b3ed;
+            --light: #ebf8ff;
+            --dark: #1a365d;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --danger: #e53e3e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(rgba(44, 82, 130, 0.85), rgba(44, 82, 130, 0.9)), 
+                        url('https://i.ibb.co/HjLfn7p/t9duylpwvxf61.jpg') center/cover fixed;
+            color: #2d3748;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .difficulty-badge {
+            display: inline-block;
+            background: var(--danger);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 1rem;
+            margin-top: 15px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .quiz-info {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-item {
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .info-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .info-label {
+            font-size: 0.9rem;
+            color: #4a5568;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .quiz-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .questions-section {
+            flex: 2;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.97);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        .answer-section {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.97);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            display: none;
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        .answer-section.visible {
+            display: block;
+        }
+        
+        .question {
+            margin-bottom: 35px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e2e8f0;
+            position: relative;
+        }
+        
+        .question-number {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-left: 5px;
+        }
+        
+        .question-number::before {
+            content: "Q";
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .question-text {
+            margin-bottom: 25px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            background: linear-gradient(to right, var(--light), #f7fafc);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .option {
+            padding: 18px 25px;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.08rem;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .option::before {
+            content: attr(data-letter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            background: #edf2f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--dark);
+            border-right: 2px solid #cbd5e0;
+        }
+        
+        .option-content {
+            margin-left: 45px;
+        }
+        
+        .option:hover {
+            background-color: #f7fafc;
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .option.selected {
+            background-color: #e6fffa;
+            border-color: var(--secondary);
+            box-shadow: 0 4px 12px rgba(49, 130, 206, 0.15);
+        }
+        
+        .option.correct {
+            background-color: #f0fff4;
+            border-color: var(--success);
+            box-shadow: 0 4px 12px rgba(56, 161, 105, 0.15);
+        }
+        
+        .option.incorrect {
+            background-color: #fff5f5;
+            border-color: var(--danger);
+            box-shadow: 0 4px 12px rgba(229, 62, 62, 0.15);
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 20px;
+        }
+        
+        button {
+            padding: 18px 35px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.15rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        button:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            flex: 2;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        
+        .reset-btn {
+            background: linear-gradient(135deg, #ffffff, #f7fafc);
+            color: var(--dark);
+            flex: 1;
+            border: 2px solid #cbd5e0;
+        }
+        
+        .reset-btn:hover {
+            background: white;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .results-section {
+            margin-top: 50px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            display: none;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        .score-display {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .score-display::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-20px, -20px) rotate(360deg); }
+        }
+        
+        .score-value {
+            font-size: 4rem;
+            font-weight: bold;
+            margin: 15px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            gap: 25px;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            flex: 1;
+            transition: transform 0.3s;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .passed .stat-value {
+            color: var(--success);
+            background: linear-gradient(135deg, var(--success), #48bb78);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .failed .stat-value {
+            color: var(--danger);
+            background: linear-gradient(135deg, var(--danger), #fc8181);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .attempted .stat-value {
+            color: var(--secondary);
+            background: linear-gradient(135deg, var(--secondary), #4299e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .answer-bank {
+            margin-top: 50px;
+        }
+        
+        .answer-item {
+            padding: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s;
+        }
+        
+        .answer-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        .answer-correct {
+            color: var(--success);
+            font-weight: bold;
+            display: inline-block;
+            padding: 5px 10px;
+            background: #f0fff4;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        
+        .answer-incorrect {
+            color: var(--danger);
+            font-weight: bold;
+            display: inline-block;
+            padding: 5px 10px;
+            background: #fff5f5;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        
+        .clinical-note {
+            background: #fffaf0;
+            border-left: 5px solid var(--warning);
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-style: italic;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .anatomy-highlight {
+            background: linear-gradient(to right, #e6fffa, #f0fff4);
+            border-left: 5px solid var(--success);
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .support-section {
+            text-align: center;
+            margin-top: 50px;
+            padding: 35px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .support-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .support-link:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .share-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn-small {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            min-width: 180px;
+            justify-content: center;
+        }
+        
+        .share-twitter {
+            background: linear-gradient(135deg, #1DA1F2, #0d8bd9);
+            color: white;
+        }
+        
+        .share-facebook {
+            background: linear-gradient(135deg, #4267B2, #365899);
+            color: white;
+        }
+        
+        .share-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+        }
+        
+        .share-copy {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 5px;
+            margin: 25px 0;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        @media (max-width: 1200px) {
+            .quiz-container {
+                flex-direction: column;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .share-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .share-btn-small {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .score-value {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 1.7rem;
+            }
+            
+            .score-value {
+                font-size: 2.5rem;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+                padding: 15px;
+            }
+            
+            .option {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Anatomy of the Back 2: Deep Muscles, Rhomboids & Levator Scapulae Mastery Quiz</h1>
+            <p class="subtitle">40 Comprehensive Questions on Deep Back Muscles, Axillary Nerve, Vascular Anatomy, and Clinical Correlations</p>
+            <div class="difficulty-badge">EXPERT LEVEL</div>
+        </header>
+        
+        <div class="quiz-info">
+            <div class="info-item">
+                <div class="info-value">40</div>
+                <div class="info-label">Expert Questions</div>
+            </div>
+            <div class="info-item">
+                <div class="info-value">Deep Back Anatomy</div>
+                <div class="info-label">Focus Area</div>
+            </div>
+            <div class="info-item">
+                <div class="info-value">Neurovascular Focus</div>
+                <div class="info-label">Special Emphasis</div>
+            </div>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress" id="progress-bar" style="width: 0%"></div>
+        </div>
+        
+        <div class="quiz-container">
+            <div class="questions-section" id="questions-section">
+                <!-- Questions will be dynamically inserted here -->
+            </div>
+            
+            <div class="answer-section" id="answer-section">
+                <h2>Comprehensive Answer Bank</h2>
+                <p>Detailed explanations with clinical correlations</p>
+                <div id="answer-bank">
+                    <!-- Answers will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="reset-btn" id="reset-btn">Reset Quiz</button>
+            <button class="submit-btn" id="submit-btn">Submit Answers</button>
+        </div>
+        
+        <div class="results-section" id="results-section">
+            <div class="score-display">
+                <h2>Your Mastery Score</h2>
+                <div class="score-value" id="score-value">0/40</div>
+                <p>Anatomy of the Back 2: Deep Muscles, Rhomboids & Levator Scapulae</p>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-box attempted">
+                    <div class="stat-value" id="attempted-value">0</div>
+                    <div class="stat-label">Questions Attempted</div>
+                </div>
+                <div class="stat-box passed">
+                    <div class="stat-value" id="passed-value">0</div>
+                    <div class="stat-label">Questions Passed</div>
+                </div>
+                <div class="stat-box failed">
+                    <div class="stat-value" id="failed-value">0</div>
+                    <div class="stat-label">Questions Failed</div>
+                </div>
+            </div>
+            
+            <div class="share-section">
+                <h3>Share Your Expert Results</h3>
+                <div class="share-buttons">
+                    <button class="share-btn-small share-twitter" id="share-twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                        </svg>
+                        Twitter
+                    </button>
+                    <button class="share-btn-small share-facebook" id="share-facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                        </svg>
+                        Facebook
+                    </button>
+                    <button class="share-btn-small share-whatsapp" id="share-whatsapp">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.017 2.047c-2.724 0-5.443 1.042-7.513 3.112-4.163 4.163-4.163 10.92 0 15.083 2.07 2.07 4.789 3.112 7.513 3.112s5.443-1.042 7.513-3.112c4.163-4.163 4.163-10.92 0-15.083-2.07-2.07-4.789-3.112-7.513-3.112zm-3.017 15.953l-1.516-1.516 3.035-3.035-3.035-3.035 1.516-1.516 3.035 3.035 3.035-3.035 1.516 1.516-3.035 3.035 3.035 3.035-1.516 1.516-3.035-3.035-3.035 3.035z"/>
+                        </svg>
+                        WhatsApp
+                    </button>
+                    <button class="share-btn-small share-copy" id="share-copy">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 1h-12c-1.1 0-2 .9-2 2v14h2v-14h12v-2zm3 4h-11c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2v-14c0-1.1-.9-2-2-2zm0 16h-11v-14h11v14z"/>
+                        </svg>
+                        Copy Results
+                    </button>
+                </div>
+            </div>
+            
+            <div class="answer-bank">
+                <h3>Detailed Anatomical Explanations with Clinical Correlations</h3>
+                <div id="detailed-answers">
+                    <!-- Detailed answers will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="support-section">
+            <h3>Follow Code God for More Advanced Medical Quizzes</h3>
+            <a href="https://www.tiktok.com/@code.god3?_r=1&_d=ZS-91SF7FxgGKu" target="_blank" class="support-link">Follow on TikTok</a>
+        </div>
+    </div>
+
+    <script>
+        // Comprehensive quiz questions for Deep Back Muscles, Rhomboids, Levator Scapulae, and Neurovascular Anatomy
+        const quizData = [
+            {
+                question: "Which specific spinal nerve roots contribute to the dorsal scapular nerve that innervates both rhomboid major and minor, and what is the clinical significance when this nerve is compromised during cervical spine surgery?",
+                options: [
+                    "C5 root exclusively - causes isolated rhomboid paralysis with minimal functional deficit",
+                    "C4-C5 roots - results in winged scapula that differs from serratus anterior palsy",
+                    "C5-C6 roots - produces characteristic 'medial border winging' during wall push test",
+                    "C3-C5 roots - affects both rhomboids and levator scapulae, causing complex scapular dyskinesis"
+                ],
+                correct: 1,
+                explanation: "The dorsal scapular nerve arises from C4-C5 roots (primarily C5) before forming the upper trunk. During anterior cervical discectomy/fusion at C4-C5 or C5-C6 levels, retraction can cause neuropraxia. This results in: 1) Medial border winging (different from serratus lateral winging), 2) Loss of scapular retraction strength, 3) Difficulty with pulling movements. Recovery typically occurs within 6 months if axonotmesis avoided. EMG at 3-4 weeks post-op confirms diagnosis."
+            },
+            {
+                question: "The levator scapulae muscle has a unique dual innervation pattern. Which nerves provide its motor supply, and what specific head movement patterns help differentiate between these nerve injuries clinically?",
+                options: [
+                    "Dorsal scapular nerve (C3-C5) and cervical plexus (C3-C4) - tested by resisted neck rotation with shoulder elevation",
+                    "Spinal accessory nerve and C3-C4 ventral rami - differentiated by shoulder shrug vs neck rotation strength",
+                    "Cervical dorsal rami only - isolated testing impossible due to overlapping functions",
+                    "All cervical nerve roots C2-C6 contribute - making isolated testing clinically irrelevant"
+                ],
+                correct: 0,
+                explanation: "Levator scapulae receives dual innervation: 1) Dorsal scapular nerve (C3-C5) for scapular elevation, 2) Direct branches from cervical plexus (C3-C4) for neck movements. Clinical testing: 1) Shoulder shrug against resistance tests dorsal scapular nerve, 2) Neck rotation against resistance with shoulder fixed tests cervical plexus. This explains why patients with dorsal scapular nerve injury can still rotate neck against levator, while cervical plexus injury spares shoulder elevation."
+            },
+            {
+                question: "During posterior approach to the cervical spine, which specific vascular structure in the 'suboccipital triangle' is most vulnerable when dissecting deep to the semispinalis capitis, and what catastrophic complication can result from its injury?",
+                options: [
+                    "Vertebral artery in the suboccipital triangle - can cause posterior circulation stroke or vertebral artery dissection",
+                    "Deep cervical artery - leads to ischemic necrosis of deep neck extensors",
+                    "Occipital artery - causes scalp necrosis and chronic occipital neuralgia",
+                    "Posterior meningeal artery - results in epidural hematoma and cord compression"
+                ],
+                correct: 0,
+                explanation: "The vertebral artery courses through the suboccipital triangle, deep to semispinalis capitis and between obliquus capitis superior/inferior. Injury during posterior cervical surgery can cause: 1) Vertebrobasilar stroke (especially if dominant vertebral), 2) Pseudoaneurysm formation, 3) Arteriovenous fistula, 4) Vertebral artery dissection. Prevention: identify anatomical landmarks (C1 posterior tubercle, C2 lamina), use blunt dissection, maintain midline approach. Intraoperative Doppler can help identify aberrant anatomy."
+            },
+            {
+                question: "Which specific branch of the costocervical trunk provides the primary blood supply to the deep layer of paravertebral muscles in the mid-thoracic region, and what surgical approach risks compromising this vessel during thoracolumbar fusion procedures?",
+                options: [
+                    "Deep cervical artery - at risk during costotransversectomy approaches to thoracic vertebrae",
+                    "Supreme intercostal artery - vulnerable during high thoracic pedicle screw placement",
+                    "Dorsal branch of posterior intercostal arteries - at risk during posterolateral fusion dissection",
+                    "All of the above arteries contribute and are at risk in different surgical approaches"
+                ],
+                correct: 3,
+                explanation: "Multiple arteries supply deep paravertebrals: 1) Deep cervical artery (from costocervical) for cervical/upper thoracic, 2) Supreme intercostal artery (T1-T2), 3) Dorsal branches of posterior intercostal arteries (T3-T11), 4) Subcostal artery (T12). During surgery: costotransversectomy risks deep cervical artery, high thoracic screws risk supreme intercostal, posterolateral fusion risks dorsal branches. Excessive cautery or aggressive subperiosteal stripping can devascularize muscles, leading to postoperative atrophy and failed fusion."
+            },
+            {
+                question: "A patient presents with isolated wasting of the infraspinatus but preserved teres minor function. Which specific branch of the axillary nerve is likely compromised, and what anatomical relationship explains this selective involvement?",
+                options: [
+                    "Anterior branch to deltoid only - irrelevant to infraspinatus wasting",
+                    "Posterior branch giving articular filament to shoulder joint - not related to muscle innervation",
+                    "Branch to teres minor arising proximal to quadrilateral space - sparing this muscle",
+                    "The axillary nerve doesn't innervate infraspinatus; this must be suprascapular nerve injury"
+                ],
+                correct: 3,
+                explanation: "Infraspinatus is innervated by the suprascapular nerve (C5-C6), NOT the axillary nerve. The axillary nerve (C5-C6) innervates: 1) Deltoid (all fibers), 2) Teres minor, 3) Skin over deltoid. Isolated infraspinatus wasting indicates suprascapular neuropathy, often from ganglion cysts at spinoglenoid notch (athletes) or traction injuries. Teres minor sparing occurs because its nerve supply (axillary) remains intact. EMG differentiates: infraspinatus denervation with normal deltoid/teres minor points to suprascapular nerve."
+            },
+            {
+                question: "The rhomboid major and minor muscles demonstrate distinct functional roles despite similar innervation. Which specific movement pattern best isolates rhomboid minor from major during clinical examination, and what is the biomechanical basis for this differentiation?",
+                options: [
+                    "Scapular retraction with inferior angle rotation - rhomboid minor primarily stabilizes medial border",
+                    "Shoulder extension with arm adducted - both rhomboids work synergistically without differentiation",
+                    "Scapular elevation with medial rotation - rhomboid minor has higher leverage on superior angle",
+                    "Resisted scapular retraction at 90° abduction - isolates rhomboid minor's unique fiber orientation"
+                ],
+                correct: 0,
+                explanation: "Rhomboid minor (C7-T1 spinous processes to medial scapular border at spine) primarily stabilizes medial scapular border during arm movements. Rhomboid major (T2-T5 to medial border inferior to spine) produces stronger retraction and downward rotation. Clinical test: patient retracts scapula while examiner pushes medial border forward; weakness allows excessive protraction. Rhomboid minor specifically tested by having patient retract while slightly elevating shoulder. Ultrasound can differentiate individual muscle activation."
+            },
+            {
+                question: "Which specific vascular anastomosis between the deep cervical artery and occipital artery provides critical collateral flow to the brainstem when the vertebral artery is compromised, and what clinical syndrome results if this anastomosis is inadequate?",
+                options: [
+                    "Suboccipital anastomotic ring - failure causes 'bow hunter's syndrome' with rotational vertebrobasilar insufficiency",
+                    "Muscular branches of vertebral artery - inadequate flow leads to Wallenberg's syndrome",
+                    "Posterior meningeal connections - failure results in posterior fossa ischemic events",
+                    "All anastomoses contribute but none are individually critical for brainstem perfusion"
+                ],
+                correct: 0,
+                explanation: "The suboccipital anastomotic ring connects: deep cervical artery (from costocervical trunk), occipital artery (from external carotid), muscular branches of vertebral artery, and descending branch of occipital artery. When vertebral artery is stenotic or occluded, this ring provides critical collateral to distal vertebral and basilar arteries. Inadequate anastomosis causes 'bow hunter's syndrome': head rotation compresses the dominant vertebral, leading to vertebrobasilar symptoms (dizziness, visual disturbances, syncope). Treatment may include C1-C2 fusion or vertebral artery decompression."
+            },
+            {
+                question: "During axillary nerve decompression in the quadrilateral space, which specific muscular boundary is most surgically challenging to identify and preserve, and what functional deficit occurs if this muscle is inadvertently denervated?",
+                options: [
+                    "Teres major superior border - loss of shoulder adduction and internal rotation",
+                    "Long head of triceps medial border - impaired elbow extension and shoulder stability",
+                    "Teres minor superior border - weakened external rotation and posterior shoulder stability",
+                    "All boundaries are equally challenging and carry significant functional consequences"
+                ],
+                correct: 2,
+                explanation: "The teres minor forms the superior boundary of quadrilateral space. During decompression: 1) Its nerve supply (axillary nerve branch) enters proximal to quadrilateral space, 2) Surgical plane must be developed between teres minor and major, 3) Excessive retraction can cause neuropraxia. Teres minor denervation causes: 1) Weak external rotation (especially at 90° abduction), 2) Posterior shoulder instability, 3) Altered glenohumeral kinematics leading to early osteoarthritis. Postoperative EMG at 6 weeks assesses nerve recovery."
+            },
+            {
+                question: "The deep layer of back muscles receives segmental arterial supply through dorsal branches of posterior intercostal arteries. Which specific anatomical feature makes these vessels particularly vulnerable during percutaneous vertebroplasty for osteoporotic compression fractures?",
+                options: [
+                    "They course through the triangular working zone (Kambin's triangle) during transpedicular approach",
+                    "They anastomose with radicular arteries that supply the anterior spinal artery",
+                    "They run in the costotransverse foramen adjacent to vertebral body injection sites",
+                    "All of the above anatomical relationships create vulnerability during vertebroplasty"
+                ],
+                correct: 3,
+                explanation: "Dorsal branches of posterior intercostal arteries are vulnerable during vertebroplasty because: 1) They course through Kambin's triangle (transpedicular approach), 2) They anastomose with radicular arteries (cement embolism risk to spinal cord), 3) They run near vertebral bodies (direct injury during needle placement). Complications: 1) Paraspinal muscle necrosis if multiple levels affected, 2) Cement pulmonary embolism via venous plexus connections, 3) Anterior spinal artery syndrome if cement enters radiculomedullary artery. CT guidance reduces risk."
+            },
+            {
+                question: "A patient with neurofibromatosis type 1 develops a plexiform neurofibroma involving the dorsal scapular nerve. Which specific compensatory muscle pattern would you expect to develop, and what long-term postural deformity might result from this compensation?",
+                options: [
+                    "Trapezius hypertrophy with levator scapulae overuse - leading to cervical degenerative changes and headaches",
+                    "Serratus anterior overactivation - causing progressive scapular winging and shoulder impingement",
+                    "Latissimus dorsi substitution - resulting in increased lumbar lordosis and low back pain",
+                    "All compensatory patterns may develop depending on individual biomechanics"
+                ],
+                correct: 0,
+                explanation: "With dorsal scapular nerve palsy (rhomboid paralysis), trapezius hypertrophies to provide scapular retraction, while levator scapulae overactivates for elevation. Long-term: 1) Cervical facet joint degeneration from chronic levator overuse, 2) Tension headaches from trapezius spasm, 3) Abnormal scapulohumeral rhythm leading to rotator cuff tendinopathy, 4) Forward head posture. Treatment: rhomboid strengthening if partial function remains, scapular stabilization exercises, possible tendon transfer (levator scapulae to medial border) in severe cases."
+            },
+            {
+                question: "Which specific anatomical relationship between the axillary nerve and the surgical neck of the humerus explains the high incidence (up to 18%) of nerve injury in four-part proximal humerus fractures, and what intraoperative technique best protects the nerve during open reduction internal fixation?",
+                options: [
+                    "Nerve tethered at quadrilateral space - careful dissection and nerve identification before plate application",
+                    "Nerve runs 5-7cm distal to acromion - use deltopectoral approach with arm in external rotation",
+                    "Nerve crosses anterior to subscapularis - identify and protect during subscapularis tenotomy",
+                    "All relationships contribute to vulnerability requiring comprehensive protective measures"
+                ],
+                correct: 1,
+                explanation: "The axillary nerve runs approximately 5-7cm distal to acromion along surgical neck. In four-part fractures: 1) Nerve can be stretched between fragments, 2) Hematoma causes compression, 3) Surgical dissection risks direct injury. Protection: 1) Deltopectoral approach with arm externally rotated moves nerve posteriorly, 2) Identify nerve at inferior border of subscapularis, 3) Use suture fixation rather than aggressive retraction, 4) Consider nerve monitoring. Postoperative: early EMG if deltoid weakness persists beyond 3 weeks."
+            },
+            {
+                question: "The deep cervical artery demonstrates a unique anastomotic pattern with the vertebral artery. At which specific vertebral level does this anastomosis typically occur, and what surgical implication does this have for posterior cervical instrumentation?",
+                options: [
+                    "C3-C4 level via muscular branches - at risk during lateral mass screw placement at these levels",
+                    "C1-C2 level via suboccipital plexus - vulnerable during transarticular screw placement",
+                    "C6-C7 level via radicular arteries - at risk during pedicle screw placement",
+                    "All cervical levels have anastomoses making every surgical level potentially hazardous"
+                ],
+                correct: 1,
+                explanation: "The deep cervical artery anastomoses with vertebral artery primarily at C1-C2 level through the suboccipital plexus. During posterior cervical instrumentation: 1) C1-C2 transarticular screws risk vertebral artery injury with potential for uncontrolled bleeding via this anastomosis, 2) C1 lateral mass screws placed too laterally can injure the plexus, 3) Preoperative CT angiography identifies dominant vertebral and anastomotic patterns. If injury occurs: immediate packing, consider endovascular intervention if bleeding uncontrolled."
+            },
+            {
+                question: "Which specific testing maneuver best differentiates rhomboid major weakness from trapezius middle fiber weakness, and what is the kinesiological basis for this differential test?",
+                options: [
+                    "'Belly press' test - rhomboids fail to stabilize scapula during internal rotation effort",
+                    "Wall push-up with palms at shoulder height - medial border winging indicates rhomboid weakness",
+                    "Scapular retraction against resistance with shoulder depressed - isolates rhomboid from trapezius",
+                    "All tests are equally effective at differentiating these muscle weaknesses"
+                ],
+                correct: 2,
+                explanation: "To differentiate: patient retracts scapula while actively depressing shoulders (counteracts trapezius elevation). Rhomboid major weakness shows: 1) Inability to maintain medial border against thorax, 2) Compensatory trapezius elevation (shrugging), 3) Pain at medial border. Trapezius middle fiber weakness: scapula wings laterally during forward flexion. Kinesiological basis: rhomboids act primarily as scapular retractors with minor depression component, while trapezius middle fibers combine retraction with elevation. EMG can confirm: rhomboid activity during retraction with shoulder depression."
+            },
+            {
+                question: "During posterior subscapular nerve block for chronic shoulder pain, which specific anatomical landmark ensures accurate deposition of local anesthetic while avoiding axillary nerve injury, and what motor function test confirms successful selective blockade?",
+                options: [
+                    "Inferior angle of scapula - test rhomboid major function",
+                    "Medial border of scapula at spine level - test rhomboid minor and levator scapulae",
+                    "Triangle of auscultation - test trapezius and latissimus dorsi sparing",
+                    "All landmarks are equally effective when combined with nerve stimulation"
+                ],
+                correct: 1,
+                explanation: "For dorsal scapular nerve block: needle inserted 2-3cm lateral to medial scapular border at spine level (C7). Ultrasound guidance identifies nerve between rhomboids and serratus posterior superior. Confirmation: 1) Loss of rhomboid contraction during scapular retraction, 2) Preserved trapezius function (shoulder shrug), 3) Preserved serratus anterior function (wall push-up). Avoid: injecting too deep (risks pneumothorax) or too lateral (misses nerve). Therapeutic benefit for rhomboid spasm or entrapment neuropathy."
+            },
+            {
+                question: "The axillary nerve gives off an articular branch to the shoulder joint before entering the quadrilateral space. Which specific pain pattern helps differentiate articular branch neuropathy from main trunk injury in patients with shoulder pain?",
+                options: [
+                    "Deep, poorly localized shoulder pain without motor weakness - suggests articular branch irritation",
+                    "Posterior shoulder pain with deltoid wasting - indicates main trunk compression",
+                    "Lateral arm numbness with preserved strength - suggests cutaneous branch involvement only",
+                    "All presentations overlap making clinical differentiation impossible without electrodiagnostics"
+                ],
+                correct: 0,
+                explanation: "Articular branch (of axillary nerve) irritation causes: 1) Deep, diffuse shoulder pain (poorly localized), 2) Night pain, 3) No motor weakness, 4) Normal EMG. Main trunk injury adds: 1) Deltoid weakness/atrophy, 2) Teres minor weakness (external rotation), 3) Sensory loss over deltoid, 4) Abnormal EMG. Articular branch can be entrapped by: inferior glenohumeral ligament, scar tissue post-surgery, or ganglion cysts. Diagnostic block (injection at quadrilateral space) confirms: pain relief without motor block."
+            },
+            {
+                question: "Which specific vascular anomaly, present in approximately 15% of population, places the dorsal scapular artery at risk during modified radical neck dissection, and what clinical sign indicates postoperative vascular compromise to the rhomboids?",
+                options: [
+                    "Dorsal scapular artery arising from transverse cervical - indicated by medial border winging and scapular pain",
+                    "Dorsal scapular artery passing through scalene muscles - causes positional ischemic pain",
+                    "Dorsal scapular artery absent with supply from deep cervical - no clinical consequence",
+                    "All variations are clinically insignificant and rarely cause postoperative issues"
+                ],
+                correct: 0,
+                explanation: "In 15% population, dorsal scapular artery arises from transverse cervical artery (not directly from subclavian). During neck dissection: 1) If transverse cervical is ligated, rhomboids lose primary blood supply, 2) Muscle ischemia causes: pain along medial border, weakness on retraction, possible muscle necrosis. Clinical sign: early postoperative medial border winging that doesn't improve with therapy. Prevention: identify dorsal scapular artery origin preoperatively with ultrasound/CTA, preserve when possible. Treatment: hyperbaric oxygen if early ischemia detected."
+            },
+            {
+                question: "The levator scapulae muscle has a unique relationship with cervical nerve roots. Which specific dermatomal pain referral pattern is characteristic of levator scapulae myofascial pain syndrome, and what underlying cervical pathology commonly coexists with this condition?",
+                options: [
+                    "Pain radiating to occiput, temple, and behind eye (C2-C3 pattern) - often with C2-C3 facet arthropathy",
+                    "Pain along medial scapular border to medial arm (C8-T1 pattern) - associated with thoracic outlet syndrome",
+                    "Pain in lateral neck and shoulder tip (C4-C5 pattern) - commonly with C4-C5 disc herniation",
+                    "All referral patterns occur making localization diagnostically challenging"
+                ],
+                correct: 0,
+                explanation: "Levator scapulae trigger points refer pain to: 1) Angle of neck and shoulder, 2) Occipital region, 3) Temple and behind eye (mimicking tension headache). This follows C2-C3 dermatomes because muscle receives C3-C4 innervation. Commonly associated with: 1) C2-C3 facet joint osteoarthritis, 2) Whiplash injury, 3) Poor posture with forward head. Treatment: trigger point injection, cervical stabilization exercises, manual therapy. Differential: C2-C3 radiculopathy (requires MRI), occipital neuralgia (nerve block diagnostic)."
+            },
+            {
+                question: "During surgical treatment of scapular winging from long thoracic nerve palsy, which specific tendon transfer technique utilizing the rhomboid major provides optimal biomechanical advantage while preserving donor site function?",
+                options: [
+                    "Rhomboid major split transfer to inferior angle - maintains medial border stabilization",
+                    "Rhomboid major to lateral border with fascia lata extension - improves depression and rotation",
+                    "Rhomboid major advancement to medial border - simple but limited functional improvement",
+                    "All techniques have similar outcomes with minimal donor morbidity"
+                ],
+                correct: 0,
+                explanation: "For scapular winging: split rhomboid major transfer (lateral half) to inferior angle provides: 1) Depression (counters serratus weakness), 2) Medial rotation (reduces winging), 3) Preserves medial border stabilization (retained medial half). Technique: detach lateral 40% of rhomboid major, route through infraspinatus fossa, attach to inferior angle with suture anchors. Advantages: maintains rhomboid function, uses synergistic muscle, minimal donor morbidity. Success requires: intact dorsal scapular nerve, proper tensioning. Postoperative: shoulder immobilization 6 weeks, then gradual active motion."
+            },
+            {
+                question: "The deep branch of the transverse cervical artery (dorsal scapular artery) has a consistent relationship with which specific nerve in the posterior triangle of the neck, and what surgical approach minimizes risk to both structures during lymph node biopsy?",
+                options: [
+                    "Spinal accessory nerve - posterior triangle dissection should be superficial to prevertebral fascia",
+                    "Dorsal scapular nerve - identify nerve lateral to levator scapulae before artery dissection",
+                    "Long thoracic nerve - approach from anterior border of trapezius to avoid both",
+                    "All nerves in posterior triangle have variable relationships making standardized approach impossible"
+                ],
+                correct: 1,
+                explanation: "The dorsal scapular artery runs with dorsal scapular nerve deep to levator scapulae. For lymph node biopsy: 1) Identify trapezius border, 2) Develop plane superficial to levator scapulae, 3) Identify nerve (white, tubular) before artery (pulsatile), 4) Biopsy superficial to this plane. Risk: damaging nerve causes rhomboid paralysis; damaging artery causes bleeding that can track into axilla. If hemorrhage occurs: direct pressure, avoid blind clamping (risk nerve injury), consider selective embolization if persistent."
+            },
+            {
+                question: "Which specific embryological derangement explains the rare congenital anomaly where rhomboid major inserts into the rib cage instead of the scapula, and what functional adaptation develops in affected individuals?",
+                options: [
+                    "Failed migration of muscle precursors from somites - compensated by trapezius hypertrophy",
+                    "Abnormal apoptosis of intervening mesenchyme - leads to restricted shoulder mobility",
+                    "Persistence of embryonic connective tissue - causes snapping scapula syndrome",
+                    "All explanations are possible with varying clinical manifestations"
+                ],
+                correct: 0,
+                explanation: "Rhomboid major develops from dorsal scapular muscle mass migrating from cervical somites. Failed migration to scapula results in rib insertion. Functional adaptation: 1) Trapezius hypertrophies to provide scapular retraction, 2) Levator scapulae may develop accessory slips, 3) Scapular kinematics altered (reduced retraction range). Often asymptomatic but discovered incidentally. May be associated with: Sprengel deformity, Klippel-Feil syndrome, cervical rib. If symptomatic (pain, limited motion): physical therapy for scapular stabilization, rarely surgical re-routing if severe."
+            },
+            {
+                question: "In patients with quadrilateral space syndrome, which specific provocation test best reproduces symptoms by compressing the axillary nerve, and what concurrent vascular finding helps confirm the diagnosis?",
+                options: [
+                    "Shoulder abduction and external rotation for 1 minute - with diminished radial pulse",
+                    "Cross-body adduction with posterior pressure - with paresthesia in deltoid region",
+                    "Military brace position (shoulders extended, adducted) - with digital plethysmography changes",
+                    "All tests are equally effective and should be used in combination"
+                ],
+                correct: 2,
+                explanation: "Quadrilateral space syndrome test: patient holds 'military brace' position (shoulders extended, adducted, externally rotated) for 1-2 minutes. Positive if: 1) Reproduces pain/paresthesia in deltoid region, 2) Diminished radial pulse (compresses posterior circumflex humeral artery), 3) Doppler shows decreased flow in posterior circumflex humeral artery. Confirm with: 1) MRI (fibrous bands, space-occupying lesions), 2) Angiography (arterial compression in provocative position), 3) EMG (axillary nerve conduction delay). Treatment: surgical decompression of quadrilateral space."
+            },
+            {
+                question: "The dorsal scapular nerve passes through which specific muscular structure before innervating the rhomboids, and what clinical syndrome results from entrapment at this site?",
+                options: [
+                    "Middle scalene muscle - causes 'scalenus medius syndrome' with medial scapular pain",
+                    "Levator scapulae muscle - produces pain with neck rotation and shoulder elevation",
+                    "Serratus posterior superior - leads to interscapular pain worsened by deep inspiration",
+                    "All sites are possible but middle scalene is most common entrapment location"
+                ],
+                correct: 3,
+                correct: 3,
+                explanation: "The dorsal scapular nerve most commonly passes through (70%) or anterior to (30%) the middle scalene muscle. Entrapment causes: 1) Medial scapular pain (rhomboid spasm), 2) Pain with neck rotation (stretches nerve), 3) Tenderness at medial scapular border. Differential: C5 radiculopathy (requires MRI), costotransverse joint arthritis. Diagnostic: nerve block at scalene provides temporary relief. Treatment: scalene muscle injection, physical therapy (scalene stretching), surgical decompression if conservative fails. Associated with: whiplash, repetitive overhead activities."
+            },
+            {
+                question: "During posterior approach for thoracic sympathectomy, which specific branch of the posterior intercostal artery must be meticulously controlled to prevent retrograde bleeding into the spinal canal, and what neurological complication can result from inadequate hemostasis?",
+                options: [
+                    "Dorsal branch giving off spinal branch - can cause epidural hematoma and cord compression",
+                    "Collateral branch anastomosing with anterior intercostal - leads to intercostal neuralgia",
+                    "Muscular branch to erector spinae - causes paraspinal muscle ischemia and pain",
+                    "All branches require equal attention to prevent postoperative complications"
+                ],
+                correct: 0,
+                explanation: "The dorsal branch of posterior intercostal artery gives off a spinal branch that enters intervertebral foramen, supplying spinal cord via radicular arteries. During sympathectomy: 1) Identify and clip dorsal branch proximal to spinal branch, 2) Avoid cautery near foramen (risk nerve injury), 3) Use bipolar cautery if needed. Inadequate control: bleeding tracks into epidural space causing hematoma and cord compression (emergency requiring evacuation). Postoperative: monitor neurological function hourly for 24 hours. MRI if new neurological deficits."
+            },
+            {
+                question: "Which specific radiographic finding on dynamic ultrasound examination confirms axillary nerve compression in the quadrilateral space, and what measurement threshold indicates pathological compression?",
+                options: [
+                    "Increased cross-sectional area of nerve >10mm² in provocative position",
+                    "Decreased blood flow velocity in posterior circumflex humeral artery >50% with abduction",
+                    "Thickening of inferior glenohumeral ligament >4mm impinging on nerve",
+                    "All findings contribute to diagnosis but no single measurement is definitive"
+                ],
+                correct: 1,
+                explanation: "Dynamic ultrasound for quadrilateral space syndrome: measure posterior circumflex humeral artery flow velocity in neutral and military brace position. Diagnostic: >50% decrease in flow velocity in provocative position. Additional findings: 1) Nerve enlargement at compression site, 2) Fibrous bands visible, 3) Space-occupying lesions (ganglion cysts). Normal flow velocity: 40-60 cm/sec. Pathological: <20 cm/sec in provocative position. Sensitivity 85%, specificity 90% compared to angiography. Advantages: non-invasive, real-time, can guide injection therapy."
+            },
+            {
+                question: "The rhomboid minor muscle has a unique fascial relationship with which specific ligament, and what clinical condition results from chronic tension in this fascial connection?",
+                options: [
+                    "Nuchal ligament - contributes to chronic tension headaches and occipital neuralgia",
+                    "Supraspinous ligament - causes mid-thoracic pain and restricted spinal extension",
+                    "Costotransverse ligament - leads to interscapular pain with deep breathing",
+                    "All ligamentous connections can become symptomatic with muscle dysfunction"
+                ],
+                correct: 0,
+                explanation: "Rhomboid minor has fascial continuity with nuchal ligament via thoracodorsal fascia. Chronic tension (from poor posture, whiplash) causes: 1) Suboccipital pain/tenderness, 2) Tension headaches (band-like distribution), 3) Limited cervical rotation. Mechanism: fascial tension transmits to nuchal ligament, irritating greater/lesser occipital nerves. Treatment: 1) Rhomboid minor release (dry needling, massage), 2) Cervical traction, 3) Postural correction. Differential: C2-C3 facet arthropathy, occipital neuralgia. Diagnostic: temporary relief with rhomboid minor trigger point injection."
+            },
+            {
+                question: "In patients with traumatic brachial plexus injury, which specific clinical finding differentiates dorsal scapular nerve avulsion from post-ganglionic injury, and what imaging modality provides definitive diagnosis?",
+                options: [
+                    "Presence of rhomboid function with Horner's syndrome suggests pre-ganglionic injury",
+                    "Absence of rhomboid contraction with normal EMG suggests neuropraxia rather than avulsion",
+                    "Medial scapular winging immediately after trauma indicates neurotmesis not avulsion",
+                    "Clinical examination cannot differentiate; all require advanced imaging"
+                ],
+                correct: 0,
+                explanation: "Dorsal scapular nerve arises from C5 root proximal to dorsal root ganglion. In pre-ganglionic avulsion: 1) Rhomboid paralysis (nerve avulsed), 2) Horner's syndrome (sympathetic chain injury at T1), 3) Denervation on EMG at 3 weeks. In post-ganglionic injury: rhomboid paralysis but normal sympathetic function. Definitive imaging: 1) MRI myelography shows pseudomeningocele at root level, 2) CT myelography better shows rootlets, 3) High-resolution ultrasound may show nerve continuity. Surgical implication: avulsion requires nerve transfers (spinal accessory to suprascapular), while post-ganglionic may be reconstructable."
+            },
+            {
+                question: "Which specific anatomical variation in the course of the dorsal scapular artery places it at risk during percutaneous scapular biopsy, and what bleeding complication is most likely if this vessel is injured?",
+                options: [
+                    "Superficial course along medial border - can cause expanding hematoma in subcutaneous space",
+                    "Deep course through rhomboids - leads to intramuscular hematoma and compartment syndrome",
+                    "Variable origin from subclavian or transverse cervical - makes preoperative identification essential",
+                    "All variations are significant and require CT angiography prior to biopsy"
+                ],
+                correct: 0,
+                explanation: "When dorsal scapular artery runs superficially along medial scapular border (15% of cases), percutaneous biopsy risks: 1) Direct arterial puncture, 2) Expanding subcutaneous hematoma (can track into axilla), 3) Pseudoaneurysm formation. Prevention: 1) Pre-procedure ultrasound to identify vessel, 2) Use smaller gauge needles (18G or smaller), 3) Apply pressure for 10 minutes post-procedure. If bleeding: direct pressure, ultrasound-guided compression, consider embolization if persistent. Risk higher in patients on anticoagulants."
+            },
+            {
+                question: "The levator scapulae muscle demonstrates unique histochemical properties. Which fiber type predominates in its different portions, and how does this relate to its susceptibility to injury in different types of athletes?",
+                options: [
+                    "Upper portion: Type I fibers for postural control - prone to overuse injuries in endurance athletes",
+                    "Lower portion: Type II fibers for rapid movements - susceptible to strains in throwing athletes",
+                    "Uniform distribution throughout - makes it equally vulnerable in all athletic activities",
+                    "Histochemical variation has no clinical relevance to injury patterns"
+                ],
+                correct: 0,
+                explanation: "Levator scapulae upper portion: 60% Type I fibers (slow oxidative) for sustained postural control. Prone to: 1) Overuse injuries in swimmers, cyclists (maintained head position), 2) Trigger point development. Lower portion: 55% Type II fibers (fast glycolytic) for rapid neck movements. Prone to: 1) Acute strains in contact sports (football, rugby), 2) Whiplash injuries. Training implications: endurance athletes need levator endurance training, power athletes need eccentric control. Rehabilitation: address fiber type-specific adaptations."
+            },
+            {
+                question: "During surgical release for chronic scapulothoracic bursitis, which specific nerve branch is most vulnerable when dissecting between the rhomboid major and serratus anterior, and what sensory deficit results from its injury?",
+                options: [
+                    "Long thoracic nerve - causes medial arm and axillary sensory loss",
+                    "Intercostobrachial nerve - results in loss of axillary and medial upper arm sensation",
+                    "Medial cutaneous nerve of arm - produces sensory loss on medial arm only",
+                    "All nerves in this region have overlapping sensory distributions"
+                ],
+                correct: 1,
+                explanation: "The intercostobrachial nerve (T2) runs in the plane between rhomboid major/serratus anterior. Injury causes: 1) Sensory loss in axilla and medial upper arm, 2) Possible neuropathic pain. Prevention: 1) Identify nerve before division of tissues, 2) Use nerve stimulator if uncertain, 3) Preserve when possible. If divided: repair with 8-0 nylon under microscope. Postoperative: patients may experience annoying numbness but usually adapt. Differential: medial brachial cutaneous nerve injury (more distal distribution)."
+            },
+            {
+                question: "Which specific congenital syndrome is characterized by absence of the rhomboid muscles along with other musculoskeletal anomalies, and what genetic mutation is typically responsible?",
+                options: [
+                    "Poland syndrome - associated with unilateral chest wall and upper limb anomalies",
+                    "Klippel-Feil syndrome - characterized by cervical vertebral fusion",
+                    "Sprengel deformity - congenital elevation of scapula",
+                    "All these syndromes can include rhomboid anomalies but have different genetic bases"
+                ],
+                correct: 3,
+                explanation: "Multiple syndromes include rhomboid anomalies: 1) Poland syndrome (unilateral): absence of pectoralis major, hand anomalies, ± rhomboid absence. Genetic: somatic mosaicism. 2) Klippel-Feil: cervical fusion, ± rhomboid hypoplasia. Genetic: GDF6, GDF3 mutations. 3) Sprengel deformity: scapular elevation, often with omovertebral bone, ± rhomboid anomalies. Genetic: often sporadic. Clinical: all cause scapular dyskinesis. Treatment: physical therapy for scapular control, possible surgical correction (Woodward procedure for Sprengel). Genetic counseling recommended."
+            },
+            {
+                question: "The axillary nerve demonstrates a unique response to different types of trauma. Which specific injury mechanism most commonly causes neuropraxia without structural disruption, and what is the typical recovery timeline?",
+                options: [
+                    "Anterior shoulder dislocation - 90% recover within 3-6 months with conservative management",
+                    "Direct blow to deltoid - usually causes permanent axonotmesis requiring surgery",
+                    "Penetrating trauma to quadrilateral space - always requires surgical exploration",
+                    "All injury mechanisms have similar recovery patterns regardless of severity"
+                ],
+                correct: 0,
+                explanation: "Anterior shoulder dislocation (especially in patients >40) causes axillary nerve neuropraxia in 10-15% of cases. Mechanism: traction as humeral head displaces anteriorly. Typically neuropraxic (conduction block without structural damage). Recovery: 1) Most begin recovering at 6-12 weeks, 2) 90% complete by 6 months, 3) EMG at 3 weeks shows denervation, 4) Sequential EMG shows reinnervation. Management: 1) Shoulder immobilization to prevent re-dislocation, 2) Early deltoid isometric exercises, 3) Monitor with serial examinations. Surgical exploration if no recovery by 6 months."
+            },
+            {
+                question: "Which specific vascular anastomosis between the dorsal scapular and suprascapular arteries provides critical collateral flow to the supraspinatus muscle when the suprascapular artery is compromised at the suprascapular notch, and what clinical condition results from inadequate collateralization?",
+                options: [
+                    "Transverse scapular anastomosis - failure causes supraspinatus tendinopathy and rotator cuff tears",
+                    "Acromial anastomotic network - inadequate flow leads to subacromial impingement",
+                    "Spinoglenoid anastomosis - poor collateralization results in isolated infraspinatus atrophy",
+                    "All anastomoses contribute but none are individually critical for muscle viability"
+                ],
+                correct: 0,
+                explanation: "The transverse scapular anastomosis connects: dorsal scapular artery (from subclavian) with suprascapular artery (from thyrocervical trunk). When suprascapular artery compressed at notch (ganglion cyst, ligament hypertrophy): 1) Collateral flow via this anastomosis may preserve supraspinatus, 2) Inadequate collateral leads to muscle ischemia, fatty infiltration, tendon degeneration. Clinical: rotator cuff tears in young patients without trauma should raise suspicion. Diagnosis: MR angiography shows anastomotic flow. Treatment: decompress suprascapular notch, address underlying cause."
+            },
+            {
+                question: "During posterior approach for scoliosis correction, which specific vascular structure must be preserved to maintain blood supply to the paraspinal muscles while allowing adequate exposure for instrumentation?",
+                options: [
+                    "Segmental arteries at costotransverse junction - require meticulous bipolar cautery",
+                    "Dorsal branches of posterior intercostal arteries - should be preserved when possible",
+                    "Anastomotic channels between segmental arteries - critical for collateral flow",
+                    "All vascular structures are important and a balanced approach is necessary"
+                ],
+                correct: 3,
+                explanation: "During scoliosis surgery: 1) Segmental arteries at costotransverse junction supply paraspinals - use bipolar cautery, avoid mass ligation, 2) Dorsal branches of posterior intercostals - preserve when possible, especially on concave side, 3) Anastomotic channels between segmentals - critical for collateral flow if some segmentals sacrificed. Excessive devascularization causes: 1) Postoperative muscle atrophy, 2) Increased infection risk, 3) Poor fusion healing. Technique: subperiosteal dissection preserves periosteal blood supply, limit electrocautery to identifiable vessels only."
+            },
+            {
+                question: "The rhomboid muscles demonstrate unique activation patterns during different phases of shoulder rehabilitation. Which specific exercise provides optimal rhomboid activation while minimizing compensatory trapezius activity in patients with scapular dyskinesis?",
+                options: [
+                    "Prone horizontal abduction with external rotation ('Y' exercise) - emphasizes lower trapezius and rhomboids",
+                    "Standing row with scapular retraction and depression - isolates rhomboids from upper trapezius",
+                    "Wall slides with maintained scapular retraction - provides closed-chain rhomboid activation",
+                    "All exercises can be effective when performed with proper scapular control"
+                ],
+                correct: 1,
+                explanation: "Standing row with scapular retraction and depression: 1) Patient retracts scapula while actively depressing shoulders (inhibits trapezius elevation), 2) EMG shows highest rhomboid activation with minimal trapezius compensation, 3) Can be progressed from elastic bands to weights. Key cues: 'pull shoulder blades together and down.' Avoid: shrugging during retraction. Progress to: prone horizontal abduction ('Y') for integrated scapular control. Rehabilitation: 3 sets of 15, 3× weekly, with focus on quality over quantity. Biofeedback (surface EMG) can optimize activation."
+            },
+            {
+                question: "Which specific anatomical relationship between the axillary nerve and the teres minor tendon explains the high incidence of nerve injury during arthroscopic repair of massive rotator cuff tears involving the posterior cuff?",
+                options: [
+                    "Nerve runs 1-2cm medial to glenoid rim at 5 o'clock position - at risk during posterior portal placement",
+                    "Nerve tethered at quadrilateral space - vulnerable during traction for visualization",
+                    "Nerve crosses inferior to teres minor insertion - at risk during anchor placement for teres minor repair",
+                    "All relationships contribute to vulnerability during arthroscopic shoulder surgery"
+                ],
+                correct: 0,
+                explanation: "The axillary nerve runs approximately 1-2cm medial to glenoid rim at the 5 o'clock position (right shoulder). During arthroscopic posterior cuff repair: 1) Posterior viewing portal placed too medial risks nerve injury, 2) Suture anchors placed inferior to teres minor insertion can penetrate nerve, 3) Capsular releases inferiorly risk nerve. Prevention: 1) Maintain portal placement lateral to this safe zone, 2) Use spinal needle localization before portal creation, 3) Limit inferior dissection. Postoperative: immediate deltoid weakness suggests nerve injury, requires EMG and possible exploration."
+            },
+            {
+                question: "In patients with chronic neck pain and scapular dyskinesis, which specific electromyographic finding differentiates levator scapulae overactivity from trapezius dysfunction as the primary driver of symptoms?",
+                options: [
+                    "Early levator activation during shoulder elevation with delayed trapezius onset",
+                    "Co-contraction of levator and trapezius throughout movement cycle",
+                    "Isolated levator activation at rest with normal trapezius recruitment during movement",
+                    "EMG cannot differentiate these patterns clinically"
+                ],
+                correct: 0,
+                explanation: "Surface EMG shows: 1) Normal: trapezius activates first during shoulder elevation, levator activates later for fine control. 2) Levator overactivity: levator activates early (compensating for weak trapezius), causes neck pain and trigger points. 3) Trapezius dysfunction: delayed or reduced activation, levator overworks. Treatment implications: if levator overactive, need to inhibit levator (stretching, trigger point release) while activating trapezius. If trapezius dysfunctional, strengthen trapezius directly. Biofeedback training: patient learns to activate trapezius without levator compensation. Duration: typically 6-8 weeks for motor re-education."
+            }
+        ];
+
+        // Initialize the quiz
+        document.addEventListener('DOMContentLoaded', function() {
+            const questionsSection = document.getElementById('questions-section');
+            const answerSection = document.getElementById('answer-section');
+            const answerBank = document.getElementById('answer-bank');
+            const submitBtn = document.getElementById('submit-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            const resultsSection = document.getElementById('results-section');
+            const scoreValue = document.getElementById('score-value');
+            const attemptedValue = document.getElementById('attempted-value');
+            const passedValue = document.getElementById('passed-value');
+            const failedValue = document.getElementById('failed-value');
+            const detailedAnswers = document.getElementById('detailed-answers');
+            const shareTwitterBtn = document.getElementById('share-twitter');
+            const shareFacebookBtn = document.getElementById('share-facebook');
+            const shareWhatsappBtn = document.getElementById('share-whatsapp');
+            const shareCopyBtn = document.getElementById('share-copy');
+            const progressBar = document.getElementById('progress-bar');
+            
+            let userAnswers = Array(quizData.length).fill(null);
+            
+            // Create question elements with letters for options
+            quizData.forEach((questionData, index) => {
+                // Create question element for questions section
+                const questionElement = document.createElement('div');
+                questionElement.className = 'question';
+                questionElement.innerHTML = `
+                    <div class="question-number">${index + 1}</div>
+                    <div class="question-text">${questionData.question}</div>
+                    <div class="options">
+                        ${questionData.options.map((option, optionIndex) => `
+                            <div class="option" data-question="${index}" data-option="${optionIndex}" data-letter="${String.fromCharCode(65 + optionIndex)}">
+                                <div class="option-content">${option}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                questionsSection.appendChild(questionElement);
+                
+                // Create answer element for answer bank
+                const answerElement = document.createElement('div');
+                answerElement.className = 'answer-item';
+                answerElement.innerHTML = `
+                    <strong>${index + 1}. ${questionData.question}</strong><br>
+                    <span class="answer-correct">Correct: ${String.fromCharCode(65 + questionData.correct)}. ${questionData.options[questionData.correct]}</span>
+                `;
+                answerBank.appendChild(answerElement);
+            });
+            
+            // Update progress bar
+            function updateProgress() {
+                const answered = userAnswers.filter(answer => answer !== null).length;
+                const progress = (answered / quizData.length) * 100;
+                progressBar.style.width = `${progress}%`;
+            }
+            
+            // Add event listeners to options
+            document.querySelectorAll('.option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const questionIndex = parseInt(this.getAttribute('data-question'));
+                    const optionIndex = parseInt(this.getAttribute('data-option'));
+                    
+                    // Remove selected class from all options in this question
+                    const questionOptions = document.querySelectorAll(`.option[data-question="${questionIndex}"]`);
+                    questionOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Store user's answer
+                    userAnswers[questionIndex] = optionIndex;
+                    
+                    // Update progress
+                    updateProgress();
+                });
+            });
+            
+            // Submit button event listener
+            submitBtn.addEventListener('click', function() {
+                let score = 0;
+                let attempted = 0;
+                let passed = 0;
+                let failed = 0;
+                
+                // Clear previous detailed answers
+                detailedAnswers.innerHTML = '';
+                
+                // Evaluate answers
+                quizData.forEach((questionData, index) => {
+                    const userAnswer = userAnswers[index];
+                    const correctAnswer = questionData.correct;
+                    const questionOptions = document.querySelectorAll(`.option[data-question="${index}"]`);
+                    
+                    if (userAnswer !== null) {
+                        attempted++;
+                        
+                        // Mark correct/incorrect answers
+                        questionOptions.forEach((option, optionIndex) => {
+                            if (optionIndex === correctAnswer) {
+                                option.classList.add('correct');
+                            } else if (optionIndex === userAnswer && userAnswer !== correctAnswer) {
+                                option.classList.add('incorrect');
+                            }
+                        });
+                        
+                        if (userAnswer === correctAnswer) {
+                            score++;
+                            passed++;
+                        } else {
+                            failed++;
+                        }
+                        
+                        // Create detailed answer element
+                        const detailedAnswer = document.createElement('div');
+                        detailedAnswer.className = 'answer-item';
+                        const userAnswerClass = userAnswer === correctAnswer ? 'answer-correct' : 'answer-incorrect';
+                        detailedAnswer.innerHTML = `
+                            <strong>${index + 1}. ${questionData.question}</strong><br>
+                            <span class="${userAnswerClass}">Your answer: ${userAnswer !== null ? String.fromCharCode(65 + userAnswer) + '. ' + questionData.options[userAnswer] : 'Not attempted'}</span><br>
+                            <span class="answer-correct">Correct: ${String.fromCharCode(65 + correctAnswer)}. ${questionData.options[correctAnswer]}</span><br>
+                            <div class="clinical-note">${questionData.explanation}</div>
+                        `;
+                        detailedAnswers.appendChild(detailedAnswer);
+                    } else {
+                        // Create detailed answer for unattempted question
+                        const detailedAnswer = document.createElement('div');
+                        detailedAnswer.className = 'answer-item';
+                        detailedAnswer.innerHTML = `
+                            <strong>${index + 1}. ${questionData.question}</strong><br>
+                            <span class="answer-incorrect">Your answer: Not attempted</span><br>
+                            <span class="answer-correct">Correct: ${String.fromCharCode(65 + correctAnswer)}. ${questionData.options[correctAnswer]}</span><br>
+                            <div class="clinical-note">${questionData.explanation}</div>
+                        `;
+                        detailedAnswers.appendChild(detailedAnswer);
+                    }
+                });
+                
+                // Update score and stats
+                scoreValue.textContent = `${score}/${quizData.length}`;
+                attemptedValue.textContent = attempted;
+                passedValue.textContent = passed;
+                failedValue.textContent = failed;
+                
+                // Show results section and answer section
+                resultsSection.style.display = 'block';
+                answerSection.classList.add('visible');
+                
+                // Scroll to results
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Reset button event listener
+            resetBtn.addEventListener('click', function() {
+                userAnswers = Array(quizData.length).fill(null);
+                
+                // Clear all selections
+                document.querySelectorAll('.option').forEach(option => {
+                    option.classList.remove('selected', 'correct', 'incorrect');
+                });
+                
+                // Hide results section and answer section
+                resultsSection.style.display = 'none';
+                answerSection.classList.remove('visible');
+                
+                // Reset progress bar
+                progressBar.style.width = '0%';
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Share buttons functionality
+            shareTwitterBtn.addEventListener('click', function() {
+                const score = document.getElementById('score-value').textContent;
+                const text = `I scored ${score} on the Deep Back Anatomy & Axillary Nerve Mastery Quiz! Test your expertise.`;
+                const url = window.location.href;
+                window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+            });
+            
+            shareFacebookBtn.addEventListener('click', function() {
+                const url = window.location.href;
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+            });
+            
+            shareWhatsappBtn.addEventListener('click', function() {
+                const score = document.getElementById('score-value').textContent;
+                const text = `I scored ${score} on the Deep Back Anatomy & Axillary Nerve Mastery Quiz! Test your expertise: ${window.location.href}`;
+                window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+            });
+            
+            shareCopyBtn.addEventListener('click', function() {
+                const score = document.getElementById('score-value').textContent;
+                const attempted = document.getElementById('attempted-value').textContent;
+                const passed = document.getElementById('passed-value').textContent;
+                const text = `Deep Back Anatomy Quiz Results:
+Score: ${score}
+Questions Attempted: ${attempted}
+Questions Passed: ${passed}
+Test your expertise: ${window.location.href}`;
+                
+                navigator.clipboard.writeText(text).then(function() {
+                    alert('Results copied to clipboard!');
+                }, function() {
+                    alert('Failed to copy results. Please try again.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
